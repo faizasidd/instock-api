@@ -4,7 +4,9 @@ let warehouses = require ('../data/warehouses.json');
 
 //full details on all warehouses, array of objects
 router.get('/', (req, res) => {
-    res.json(warehouses)
+    console.log('get a list of warehouses')
+    res.status(200).json(warehouses)
 })
+
 
 module.exports = router;
