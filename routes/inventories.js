@@ -8,13 +8,23 @@ let inventories = require("../data/inventories.json");
 router.post("/", (req, res) => {
   //   res.send("Hello this is a successful post request!");
   const inventories = require("../data/inventories.json");
-  const { warehouseName, itemName, description, category, status, quantity } =
-    req.body;
+  const {
+    warehouseID,
+    warehouseName,
+    itemName,
+    description,
+    category,
+    status,
+    quantity,
+  } = req.body;
   id = randomUUID();
+
   console.log(req.body);
   const newInventoryData = {
     id,
-    warehouseID: "", //this one I am not sure how to fetch
+    warehouseID: "", //this has to match the ID of warehouseName
+    // tried using if statement(if (warehouseName==="Manhattan"){warehouseID==="something"})
+    // but encountered reassignment issues
     warehouseName,
     itemName,
     description,
