@@ -12,6 +12,12 @@ router.use(cors());
 router.use(bodyParser.json());
 router.use(express.json());
 
+// Full details on all warehouses, array of objects
+router.get('/', (req, res) => {
+    console.log('get a list of warehouses')
+    res.status(200).json(warehouses)
+})
+
 // POST/CREATE a New Warehouse
 
 router.post('/warehouses/add', ((req, res) => {
