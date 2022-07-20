@@ -13,6 +13,7 @@ router.use(bodyParser.json());
 router.use(express.json());
 
 // Full details on all warehouses, array of objects
+
 router.get('/', (req, res) => {
     console.log('get a list of warehouses')
     res.status(200).json(warehouses)
@@ -20,7 +21,7 @@ router.get('/', (req, res) => {
 
 // POST/CREATE a New Warehouse
 
-router.post('/warehouses/add', ((req, res) => {
+router.post('/', ((req, res) => {
     const newWarehouseInfo = {
         "id": uuidv4(),
         "name": req.body.name,
@@ -41,7 +42,7 @@ router.post('/warehouses/add', ((req, res) => {
         if (err) {
             console.log(err)
         } else {
-            res.status(200).json("warehouse Added")
+            res.status(200).json("Warehouse Added")
         }
     })
 }))
