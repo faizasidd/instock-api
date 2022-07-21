@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { randomUUID } = require("crypto");
+const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
 const path = require("path");
 
@@ -18,7 +18,7 @@ router.post("/", (req, res) => {
     status,
     quantity,
   } = req.body;
-  id = randomUUID();
+  id = uuidv4();
   const findWarehouse = (warehouseToFind) => {
     const matchingWarehouse = warehouses.find(
       (warehouse) => warehouse.name === warehouseToFind
@@ -46,6 +46,7 @@ router.post("/", (req, res) => {
   const newInventoryJSON = JSON.stringify(inventories, null, 4);
   fs.writeFile("./data/inventories.json", newInventoryJSON, "utf8", (err) => {
     if (err) {
+      res.status(500).send();
       console.log(err);
     }
   });
@@ -69,7 +70,7 @@ router.put("/:id", (req, res) => {
     console.log("no matching inventory found");
     return "";
   };
-  console.log(inventory.id)
+  console.log(inventory.id);
 
   fs.writeFileSync("./data/inventories.json", JSON.stringify(inventories));
   console.log(inventories);
