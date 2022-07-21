@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 let inventories = require('../data/inventories.json')
-
+const fs= require("fs")
 
 //deleting inventory items 
 router.delete('/inventory/:inventoryId', (req, res) => {
-    
+
     const {inventoryId} = req.params
     const requestInventory = inventories.findIndex(inventory => inventory.id === inventoryId)
 
