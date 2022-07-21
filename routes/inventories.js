@@ -6,7 +6,9 @@ const path = require("path");
 
 router.post("/", (req, res) => {
   //   res.send("Hello this is a successful post request!");
+  const warehouses = require("../data/warehouses.json");
   const inventories = require("../data/inventories.json");
+
   const {
     warehouseID,
     warehouseName,
@@ -17,36 +19,20 @@ router.post("/", (req, res) => {
     quantity,
   } = req.body;
   id = randomUUID();
-  const findWarehouse=(newInventoryDataParam)=>{
-    Object.keys(newInventoryDataParam).find((element) => element.warehouseName);
-  }
-  console.log(findWarehouse.warehouseID);
+  const findWarehouse = (warehouseToFind) => {
+    const matchingWarehouse = warehouses.find(
+      (warehouse) => warehouse.name === warehouseToFind
+    );
+    if (matchingWarehouse) {
+      return matchingWarehouse.id;
+    }
+    console.log("no matching warehouse found");
+    return "";
+  };
 
-  // console.log(inventories.find(element=>element=warehouseName))
-  // const warehouseNameToID = ()=>{
-  //   console.log("hello")
-  //   console.log(Object.keys(req.body).find(element=>element.warehouseName="Miami"))
-
-  //   // console.log(element)
-  //   // return element
-
-  // }
-
-  // console.log(inventories)
-  //   const warehouseNameToID = (warehouseNameParam) => {
-  // inventories.find((element=>element=warehouseNameParam))
-  // console.log(inventories)
-  // if (warehouseNameParam === "Manhattan") {
-  //   console.log("hello")
-  //  return "12345";
-  // }
-  // console.log(warehouseID)
-  // return warehouseID
-
-  // };
   const newInventoryData = {
     id,
-    warehouseID: findWarehouse.warehouseID,
+    warehouseID: findWarehouse(warehouseName),
     warehouseName,
     itemName,
     description,
@@ -63,6 +49,19 @@ router.post("/", (req, res) => {
       console.log(err);
     }
   });
+});
+
+router.put("/:id", (req, res) => {
+  const inventories = require("../data/inventories.json");
+  const id = req.params.id;
+  // const data = JSON.parse(inventories);
+  console.log(id);
+  inventories[id]["warehouseName"] = req.body.warehouseName;
+  inventories[id]["itemName"] = req.body.itemName;
+  inventories[id]["description"] = req.body.description;
+
+  fs.writeFileSync("./data/inventories.json", JSON.stringify(inventories));
+  console.log(inventories);
 });
 
 module.exports = router;

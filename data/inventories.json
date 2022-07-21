@@ -1146,5 +1146,15 @@
         "category": "",
         "status": "",
         "quantity": ""
+    },
+    {
+        "id": "e8624e33-94a1-485f-9c08-f005436a4586",
+        "warehouseID": "ade0a47b-cee6-4693-b4cd-a7e6cb25f4b7",
+        "warehouseName": "Seattle",
+        "itemName": "",
+        "description": "",
+        "category": "",
+        "status": "",
+        "quantity": ""
     }
 ]
