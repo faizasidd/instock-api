@@ -7,4 +7,3 @@ router.get('/', (req, res) => {
     res.json(warehouses)
 })
 
-module.exports = router;
