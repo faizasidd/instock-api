@@ -55,10 +55,21 @@ router.put("/:id", (req, res) => {
   const inventories = require("../data/inventories.json");
   const id = req.params.id;
   // const data = JSON.parse(inventories);
-  console.log(id);
-  inventories[id]["warehouseName"] = req.body.warehouseName;
-  inventories[id]["itemName"] = req.body.itemName;
-  inventories[id]["description"] = req.body.description;
+  // console.log(id);
+  // inventories[id]["warehouseName"] = req.body.warehouseName;
+  // inventories[id]["itemName"] = req.body.itemName;
+  // inventories[id]["description"] = req.body.description;
+  const findInventoryID = (inventoryToFind) => {
+    const matchingInventory = inventories.find(
+      (inventory) => inventory.id === inventoryToFind
+    );
+    if (matchingInventory) {
+      return matchingInventory.id;
+    }
+    console.log("no matching inventory found");
+    return "";
+  };
+  console.log(inventory.id)
 
   fs.writeFileSync("./data/inventories.json", JSON.stringify(inventories));
   console.log(inventories);
