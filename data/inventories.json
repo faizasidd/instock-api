@@ -8,7 +8,7 @@
     "category": "Electronics",
     "status": "In Stock",
     "quantity": 500
-},
+  },
   {
     "id": "83433026-ca32-4c6d-bd86-a39ee8b7303e",
     "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
@@ -783,11 +783,11 @@
   {
     "id": "7c197a1e-9a4d-498b-80a2-f4cee11ed713",
     "warehouseName": "Washington",
-    "itemName": "",
-    "description": "",
-    "category": "",
-    "status": "",
-    "quantity": ""
+    "itemName": "hello",
+    "description": "hello",
+    "category": "sss",
+    "status": "stock",
+    "quantity": "20"
   },
   {
     "id": "23beb8b9-0d10-4244-a53e-0f82c0ca7152",
