@@ -1,8 +1,27 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const { v4: uuidv4 } = require("uuid");
-const fs = require("fs");
+const warehouses = require('../data/warehouses.json')
+const inventories = require('../data/inventories.json')
+const fs= require("fs")
+const { v4: uuidv4 } = require('uuid');
 const path = require("path");
+
+// GET a Single Inventory Item
+
+router.get('/:inventoryId', ((req, res) => {
+
+    const id = req.params.inventoryId
+    const selectedInventory = inventories.filter(inventory => inventory.id === id)
+
+    if (selectedInventory) {
+        res.status(200).send(selectedInventory)
+    }
+    else {
+        res.status(400).json(`Inventory with id: ${id} does not exist`)
+    }
+}))
+
+// POST/CREATE new Inventory Item 
 
 router.post("/", (req, res) => {
   //   res.send("Hello this is a successful post request!");
@@ -51,6 +70,8 @@ router.post("/", (req, res) => {
     }
   });
 });
+
+// PUT/PATCH/EDIt Inventory Item
 
 router.put("/:id", (req, res) => {
   const inventories = require("../data/inventories.json");
