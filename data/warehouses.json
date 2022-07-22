@@ -102,5 +102,57 @@
       "phone": "+1 (646) 123-1234",
       "email": "vmendoza@instock.com"
     }
+  },
+  {
+    "id": "2922c286-16cd-4d43-ab98-c79f698aeab0",
+    "name": "Manhattan",
+    "address": "503 Broadway",
+    "city": "New York",
+    "country": "USA",
+    "contact": {
+      "name": "Parmin Aujla",
+      "position": "Warehouse Manager",
+      "phone": "+1 (646) 123-1234",
+      "email": "paujla@instock.com"
+    }
+  },
+  {
+    "id": "bcdf3ee5-26b8-4e21-a190-e533f6b7df4a",
+    "name": "Manhattan",
+    "address": "503 Broadway",
+    "city": "New York",
+    "country": "USA",
+    "contact": {
+      "name": "Parmin Aujla",
+      "position": "Warehouse Manager",
+      "phone": "+1 (646) 123-1234",
+      "email": "paujla@instock.com"
+    }
+  },
+  {
+    "id": "0b6575ec-6e6e-4596-a1c8-ab1ecb37b9c7",
+    "name": "Manhattan",
+    "address": "503 Broadway",
+    "city": "New York",
+    "country": "USA",
+    "contact": {
+      "name": "Parmin Aujla",
+      "position": "Warehouse Manager",
+      "phone": "+1 (646) 123-1234",
+      "email": "paujla@instock.com"
+    }
+  },
+  {
+    "id": "8ca0416e-550f-461d-857a-5e9a72fad15b",
+    "name": "Manhattan",
+    "address": "503 Broadway",
+    "city": "New York",
+    "country": "USA",
+    "contact": {
+      "name": "Parmin Aujla",
+      "position": "Warehouse Manager",
+      "phone": "+1 (646) 123-1234",
+      "email": "paujla@instock.com"
+    }
   }
 ]
