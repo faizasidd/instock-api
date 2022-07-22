@@ -85,7 +85,7 @@ router.post("/", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.status(200);
+      res.send(200);
     }
   });
 });
@@ -116,7 +116,7 @@ router.put("/:inventoryId/edit", (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.status(200);
+        res.send(200);
       }
     }
   );
