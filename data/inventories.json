@@ -8,7 +8,7 @@
     "category": "Electronics",
     "status": "In Stock",
     "quantity": 500
-},
+  },
   {
     "id": "83433026-ca32-4c6d-bd86-a39ee8b7303e",
     "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
@@ -783,11 +783,11 @@
   {
     "id": "7c197a1e-9a4d-498b-80a2-f4cee11ed713",
     "warehouseName": "Washington",
-    "itemName": "",
-    "description": "",
-    "category": "",
-    "status": "",
-    "quantity": ""
+    "itemName": "hello",
+    "description": "hello",
+    "category": "sss",
+    "status": "stock",
+    "quantity": "20"
   },
   {
     "id": "23beb8b9-0d10-4244-a53e-0f82c0ca7152",
@@ -1171,16 +1171,6 @@
     "id": "21f6fb75-7628-4bb6-866b-376cbdaf243a",
     "warehouseID": "ade0a47b-cee6-4693-b4cd-a7e6cb25f4b7",
     "warehouseName": "Seattle",
-    "itemName": "",
-    "description": "",
-    "category": "",
-    "status": "",
-    "quantity": ""
-  },
-  {
-    "id": "3fbf7e7c-f306-464f-877a-3977f77af29e",
-    "warehouseID": "90ac3319-70d1-4a51-b91d-ba6c2464408c",
-    "warehouseName": "Jersey",
     "itemName": "",
     "description": "",
     "category": "",

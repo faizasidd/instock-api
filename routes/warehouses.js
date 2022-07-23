@@ -16,8 +16,36 @@ router.use(express.json());
 
 router.get('/', (req, res) => {
     console.log('get a list of warehouses')
-    res.status(200).json(warehouses)
+    const mappedWarehouses = warehouses.map(warehouse => {
+        return { 
+            ...warehouse, 
+            contactName: warehouse.contact.name,
+            contactPosition: warehouse.contact.position,
+            contactPhone: warehouse.contact.phone,
+            contactEmail: warehouse.contact.email
+        }
+    })
+
+  
+    res.status(200).json(mappedWarehouses)
 })
+
+// GET a Single Warehouse with its inventory
+
+router.get('/:warehouseId', ((req, res) => {
+    
+    const id = req.params.warehouseId;
+    const selectedWarehouse = warehouses.filter(warehouse => warehouse.id === id);
+    const selectedInventory = inventories.filter(inventory => inventory.warehouseID === id);
+
+    if (selectedWarehouse && selectedInventory) {
+        const joinedData = selectedWarehouse.concat(selectedInventory);
+        res.status(200).json(joinedData);
+    }
+    else {
+        res.status(404).json(`Warehouse with id: ${id} does not exist`);
+    }
+}))
 
 // POST/CREATE a New Warehouse
 
@@ -29,10 +57,10 @@ router.post('/', ((req, res) => {
         "city": req.body.city,
         "country": req.body.country,
         "contact": {
-            "name": req.body.contact.name,
-            "position": req.body.contact.position,
-            "phone": req.body.contact.phone,
-            "email": req.body.contact.email
+            "name": req.body.contactName,
+            "position": req.body.contactPosition,
+            "phone": req.body.contactPhone,
+            "email": req.body.contactEmail
         }
     }
     const newWarehouseDataSet = warehouses
@@ -59,10 +87,10 @@ router.put('/:warehouseId/edit',((req,res)=>{
             "city": req.body.city,
             "country": req.body.country,
             "contact": {
-                "name": req.body.contact.name,
-                "position": req.body.contact.position,
-                "phone": req.body.contact.phone,
-                "email": req.body.contact.email
+                "name": req.body.contactName,
+                "position": req.body.contactPosition,
+                "phone": req.body.contactPhone,
+                "email": req.body.contactEmail
             }
         }
         const newWarehouseData = warehouses.map(warehouse => {
@@ -112,5 +140,21 @@ router.get('/:warehouseId', ((req, res) => {
     }
 }))
 
+router.delete('/:warehouseId/delete', (req, res) => {
+
+    const { warehouseId } = req.params
+
+    const requestWarehouse = warehouses.findIndex(warehouse => warehouse.id === warehouseId)
+
+    const warehouse = warehouses[requestWarehouse];
+
+    warehouses.splice(requestWarehouse, 1)
+
+    const dataObject = JSON.stringify(warehouses, null, 2);
+    fs.writeFile(__dirname + '/../data/warehouses.json', dataObject, (err) => {
+        console.log(err)
+    })
+    res.status(200).json(warehouses)
+})
     
 module.exports = router;
