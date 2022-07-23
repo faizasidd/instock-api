@@ -125,14 +125,12 @@ router.get('/:warehouseId', ((req, res) => {
     const id = req.params.warehouseId;
     const selectedWarehouse = warehouses.find(warehouse => warehouse.id === id);
     const selectedInventory = inventories.filter(inventory => inventory.warehouseID === id);
-    console.log(id)
 
     if (selectedWarehouse && selectedInventory) {
         const joinedData = {
             warehouse: selectedWarehouse,
             inventory: selectedInventory
         }
-        console.log(joinedData)
         res.status(200).json(joinedData);
     }
     else {
