@@ -15,7 +15,6 @@ router.use(express.json());
 // Full details on all warehouses, array of objects
 
 router.get("/", (req, res) => {
-  console.log("get a list of warehouses");
   const mappedWarehouses = warehouses.map((warehouse) => {
     return {
       ...warehouse,
