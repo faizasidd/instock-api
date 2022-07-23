@@ -147,30 +147,51 @@ router.put("/:warehouseId/edit", (req, res) => {
           } else {
             res.status(200).json("Warehouse Update Received!");
           }
-        }
-      );
-    }
-  );
-});
+        })
+        const newWarehouseData = warehouses.map(warehouse => {
+            if (warehouse.id === warehouseId){
+                return warehouse = editWarehouse
+            } else {
+                return warehouse = warehouse
+            }
+        })
+    
+        const newInventoryData = inventories.map(inventory => {
+            if (inventory.warehouseID === warehouseId){
+                return {...inventory, warehouseName:req.body.name}
+            } else {
+                return inventory = inventory
+            }
+        })
+    
+        fs.writeFile(__dirname + '/../data/warehouses.json', JSON.stringify(newWarehouseData, null, 2), (err1)=> {
+        fs.writeFile(__dirname + '/../data/inventories.json', JSON.stringify(newInventoryData, null, 2), (err2)=> {
+                if(err1 || err2){
+                    console.log(err1 || err2)
+                } else {
+                    res.status(200).json("Warehouse Update Received!")
+                }
+            })
+        })
+})})
 
-// Delete Warehouse
+router.delete('/:warehouseId', (req, res) => {
 
-router.delete("/:warehouseId/delete", (req, res) => {
-  const { warehouseId } = req.params;
+    const { warehouseId } = req.params
 
-  const requestWarehouse = warehouses.findIndex(
-    (warehouse) => warehouse.id === warehouseId
-  );
+    const requestWarehouse = warehouses.findIndex(warehouse => warehouse.id === warehouseId)
 
-  const warehouse = warehouses[requestWarehouse];
+    const warehouse = warehouses[requestWarehouse];
 
-  warehouses.splice(requestWarehouse, 1);
+    warehouses.splice(requestWarehouse, 1)
 
-  const dataObject = JSON.stringify(warehouses, null, 2);
-  fs.writeFile(__dirname + "/../data/warehouses.json", dataObject, (err) => {
-    console.log(err);
-  });
-  res.status(200).json(warehouses);
-});
+    const dataObject = JSON.stringify(warehouses, null, 2);
+    fs.writeFile(__dirname + '/../data/warehouses.json', dataObject, (err) => {
+        console.log(err)
+    })
+    res.status(200).json(warehouses)
+})
+    
+
 
 module.exports = router;

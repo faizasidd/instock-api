@@ -8,44 +8,32 @@ const path = require("path");
 // GET full details on all inventory, array of objects
 router.get('/', (req, res) => {
   console.log('Here is a list of the inventory')
+   
+    const requestInventory = inventories.filter(
+      (inventory) => inventory.warehouseId === req.params.warehouseId
+    );
+    res.status(200).json(requestInventory);
+  });
 
-    router.get('/', (req, res) => {
-      console.log('get inventories')
-      res.status(200).json(inventories)
-    })
 
     //deleting inventory items 
-    router.delete('/:inventoryId', (req, res) => {
-    
-      const { inventoryId } = req.params
-   
-      const requestInventory = inventories.findIndex(inventory => inventory.id === inventoryId)
-   
-      const inventory = inventories[requestInventory];
+router.delete('/:inventoryId', (req, res) => {
 
-      inventories.splice(requestInventory, 1)
+    const { inventoryId } = req.params
 
-      const dataObjectAsString = JSON.stringify(inventories, null, 2);
-      fs.writeFile(__dirname + '/../data/inventories.json', dataObjectAsString, (err) => {
-        console.log(err)
-      })
-      res.status(200).json(inventory)
-    });
-
-    const requestInventory = inventories.findIndex(
-      (inventory) => inventory.id === inventoryId
-    );
+    const requestInventory = inventories.findIndex(inventory => inventory.id === inventoryId)
 
     const inventory = inventories[requestInventory];
 
-    inventories.splice(requestInventory, 1);
+    inventories.splice(requestInventory, 1)
 
     const dataObjectAsString = JSON.stringify(inventories, null, 2);
-    fs.writeFile(__dirname + "/../data/inventories.json", dataObjectAsString, (err) => {
-      console.log(err);
-    });
-    res.status(200).json(inventory);
-  });
+    fs.writeFile(__dirname + '/../data/inventories.json', dataObjectAsString, (err) => {
+      console.log(err)
+    })
+    res.status(200).json(inventory)
+});
+
 
   // GET a Single Inventory Item
 
