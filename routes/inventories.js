@@ -8,6 +8,9 @@ const path = require("path");
 // GET full details on all inventory, array of objects
 router.get('/', (req, res) => {
   console.log('Here is a list of the inventory')
+
+router.get('/', (req, res) => {
+  console.log('get inventories')
   res.status(200).json(inventories)
 })
 
