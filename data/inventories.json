@@ -1,15 +1,5 @@
 [
   {
-    "id": "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3",
-    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "warehouseName": "Manhattan",
-    "itemName": "Television",
-    "description": "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors.",
-    "category": "Electronics",
-    "status": "In Stock",
-    "quantity": 500
-},
-  {
     "id": "83433026-ca32-4c6d-bd86-a39ee8b7303e",
     "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
     "warehouseName": "Manhattan",
@@ -1171,16 +1161,6 @@
     "id": "21f6fb75-7628-4bb6-866b-376cbdaf243a",
     "warehouseID": "ade0a47b-cee6-4693-b4cd-a7e6cb25f4b7",
     "warehouseName": "Seattle",
-    "itemName": "",
-    "description": "",
-    "category": "",
-    "status": "",
-    "quantity": ""
-  },
-  {
-    "id": "3fbf7e7c-f306-464f-877a-3977f77af29e",
-    "warehouseID": "90ac3319-70d1-4a51-b91d-ba6c2464408c",
-    "warehouseName": "Jersey",
     "itemName": "",
     "description": "",
     "category": "",
