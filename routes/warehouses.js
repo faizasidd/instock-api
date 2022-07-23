@@ -33,18 +33,32 @@ router.get('/', (req, res) => {
 // GET a Single Warehouse with its inventory
 
 router.get('/:warehouseId', ((req, res) => {
-    
+
     const id = req.params.warehouseId;
-    const selectedWarehouse = warehouses.filter(warehouse => warehouse.id === id);
+    const selectedWarehouse = warehouses.find(warehouse => warehouse.id === id);
     const selectedInventory = inventories.filter(inventory => inventory.warehouseID === id);
 
     if (selectedWarehouse && selectedInventory) {
-        const joinedData = selectedWarehouse.concat(selectedInventory);
+        const joinedData = {
+            warehouse: selectedWarehouse,
+            inventory: selectedInventory
+        }
         res.status(200).json(joinedData);
     }
     else {
         res.status(404).json(`Warehouse with id: ${id} does not exist`);
     }
+}))
+
+// GET Inventories for a Given Warehouse
+
+router.get('/:warehouseId/inventory', ((req, res) => {
+    let { warehouseId } = req.params;
+    const data = inventories.filter(inventory => inventory.warehouseID === warehouseId)
+    if(!data) {
+    res.status(400).send(`There is no inventory under the ${warehouseId}`)
+    }
+    res.status(200).json(data)
 }))
 
 // POST/CREATE a New Warehouse
@@ -76,6 +90,7 @@ router.post('/', ((req, res) => {
 }))
 
 // PUT/PATCH/EDIT a Warehouse
+
 router.put('/:warehouseId/edit',((req,res)=>{
 
         let { warehouseId } = req.params;
@@ -120,23 +135,7 @@ router.put('/:warehouseId/edit',((req,res)=>{
         })
 }))
 
-router.get('/:warehouseId', ((req, res) => {
-
-    const id = req.params.warehouseId;
-    const selectedWarehouse = warehouses.find(warehouse => warehouse.id === id);
-    const selectedInventory = inventories.filter(inventory => inventory.warehouseID === id);
-
-    if (selectedWarehouse && selectedInventory) {
-        const joinedData = {
-            warehouse: selectedWarehouse,
-            inventory: selectedInventory
-        }
-        res.status(200).json(joinedData);
-    }
-    else {
-        res.status(404).json(`Warehouse with id: ${id} does not exist`);
-    }
-}))
+// Delete Warehouse
 
 router.delete('/:warehouseId/delete', (req, res) => {
 
