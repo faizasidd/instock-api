@@ -1,31 +1,5 @@
 [
   {
-    "id": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "name": "Manhattan",
-    "address": "503 Broadway",
-    "city": "New York",
-    "country": "USA",
-    "contact": {
-      "name": "Parmin Aujla",
-      "position": "Warehouse Manager",
-      "phone": "+1 (646) 123-1234",
-      "email": "paujla@instock.com"
-    }
-  },
-  {
-    "id": "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
-    "name": "Washington",
-    "address": "33 Pearl Street SW",
-    "city": "Washington",
-    "country": "USA",
-    "contact": {
-      "name": "Greame Lyon",
-      "position": "Warehouse Manager",
-      "phone": "+1 (646) 123-1234",
-      "email": "glyon@instock.com"
-    }
-  },
-  {
     "id": "90ac3319-70d1-4a51-b91d-ba6c2464408c",
     "name": "Jersey",
     "address": "300 Main Street",
@@ -118,32 +92,6 @@
   },
   {
     "id": "bcdf3ee5-26b8-4e21-a190-e533f6b7df4a",
-    "name": "Manhattan",
-    "address": "503 Broadway",
-    "city": "New York",
-    "country": "USA",
-    "contact": {
-      "name": "Parmin Aujla",
-      "position": "Warehouse Manager",
-      "phone": "+1 (646) 123-1234",
-      "email": "paujla@instock.com"
-    }
-  },
-  {
-    "id": "0b6575ec-6e6e-4596-a1c8-ab1ecb37b9c7",
-    "name": "Manhattan",
-    "address": "503 Broadway",
-    "city": "New York",
-    "country": "USA",
-    "contact": {
-      "name": "Parmin Aujla",
-      "position": "Warehouse Manager",
-      "phone": "+1 (646) 123-1234",
-      "email": "paujla@instock.com"
-    }
-  },
-  {
-    "id": "8ca0416e-550f-461d-857a-5e9a72fad15b",
     "name": "Manhattan",
     "address": "503 Broadway",
     "city": "New York",

@@ -5,6 +5,12 @@ const fs= require("fs")
 const { v4: uuidv4 } = require('uuid');
 const path = require("path");
 
+
+router.get('/', (req, res) => {
+  console.log('get inventories')
+  res.status(200).json(inventories)
+})
+
 //deleting inventory items 
 router.delete('/:inventoryId/delete', (req, res) => {
     
