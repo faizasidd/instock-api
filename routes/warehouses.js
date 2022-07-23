@@ -19,6 +19,21 @@ router.get('/', (req, res) => {
     res.status(200).json(warehouses)
 })
 
+router.get('/:warehouseId', ((req, res) => {
+
+    const id = req.params.warehouseId;
+    const selectedWarehouse = warehouses.filter(warehouse => warehouse.id === id);
+    const selectedInventory = inventories.filter(inventory => inventory.warehouseID === id);
+
+    if (selectedWarehouse && selectedInventory) {
+        const joinedData = selectedWarehouse.concat(selectedInventory);
+        res.status(200).json(joinedData);
+    }
+    else {
+        res.status(404).json(`Warehouse with id: ${id} does not exist`);
+    }
+}))
+
 // POST/CREATE a New Warehouse
 
 router.post('/', ((req, res) => {
