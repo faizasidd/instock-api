@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
             contactEmail: warehouse.contact.email
         }
     })
-
+console.log(mappedWarehouses)
   
     res.status(200).json(mappedWarehouses)
 })
@@ -120,7 +120,7 @@ router.put('/:warehouseId/edit',((req,res)=>{
         })
 }))
 
-router.delete('/:warehouseId/delete', (req, res) => {
+router.delete('/:warehouseId', (req, res) => {
 
     const { warehouseId } = req.params
 
