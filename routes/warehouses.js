@@ -30,6 +30,23 @@ router.get('/', (req, res) => {
     res.status(200).json(mappedWarehouses)
 })
 
+// GET a Single Warehouse with its inventory
+
+router.get('/:warehouseId', ((req, res) => {
+    
+    const id = req.params.warehouseId;
+    const selectedWarehouse = warehouses.filter(warehouse => warehouse.id === id);
+    const selectedInventory = inventories.filter(inventory => inventory.warehouseID === id);
+
+    if (selectedWarehouse && selectedInventory) {
+        const joinedData = selectedWarehouse.concat(selectedInventory);
+        res.status(200).json(joinedData);
+    }
+    else {
+        res.status(404).json(`Warehouse with id: ${id} does not exist`);
+    }
+}))
+
 // POST/CREATE a New Warehouse
 
 router.post('/', ((req, res) => {
@@ -102,5 +119,22 @@ router.put('/:warehouseId/edit',((req,res)=>{
             })
         })
 }))
+
+router.delete('/:warehouseId/delete', (req, res) => {
+
+    const { warehouseId } = req.params
+
+    const requestWarehouse = warehouses.findIndex(warehouse => warehouse.id === warehouseId)
+
+    const warehouse = warehouses[requestWarehouse];
+
+    warehouses.splice(requestWarehouse, 1)
+
+    const dataObject = JSON.stringify(warehouses, null, 2);
+    fs.writeFile(__dirname + '/../data/warehouses.json', dataObject, (err) => {
+        console.log(err)
+    })
+    res.status(200).json(warehouses)
+})
     
 module.exports = router;

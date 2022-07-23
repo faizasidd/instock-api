@@ -8,6 +8,32 @@ const path = require("path");
 //deleting inventory items
 router.delete("/:inventoryId/delete", (req, res) => {
   const { inventoryId } = req.params;
+// GET full details on all inventory, array of objects
+router.get('/', (req, res) => {
+  console.log('Here is a list of the inventory')
+
+router.get('/', (req, res) => {
+  console.log('get inventories')
+  res.status(200).json(inventories)
+})
+
+//deleting inventory items 
+router.delete('/:inventoryId/delete', (req, res) => {
+    
+    const {inventoryId} = req.params
+   
+    const requestInventory = inventories.findIndex(inventory => inventory.id === inventoryId)
+   
+    const inventory = inventories[requestInventory];
+
+    inventories.splice(requestInventory, 1)
+
+    const dataObject = JSON.stringify(inventories, null, 2);
+    fs.writeFile(__dirname + '/../data/inventories.json', dataObject, (err) => {
+        console.log(err)
+    })
+    res.status(200).json(inventory)
+});
 
   const requestInventory = inventories.findIndex(
     (inventory) => inventory.id === inventoryId
