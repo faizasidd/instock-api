@@ -16,7 +16,18 @@ router.use(express.json());
 
 router.get('/', (req, res) => {
     console.log('get a list of warehouses')
-    res.status(200).json(warehouses)
+    const mappedWarehouses = warehouses.map(warehouse => {
+        return { 
+            ...warehouse, 
+            contactName: warehouse.contact.name,
+            contactPosition: warehouse.contact.position,
+            contactPhone: warehouse.contact.phone,
+            contactEmail: warehouse.contact.email
+        }
+    })
+
+  
+    res.status(200).json(mappedWarehouses)
 })
 
 // GET a Single Warehouse with its inventory
@@ -46,10 +57,10 @@ router.post('/', ((req, res) => {
         "city": req.body.city,
         "country": req.body.country,
         "contact": {
-            "name": req.body.contact.name,
-            "position": req.body.contact.position,
-            "phone": req.body.contact.phone,
-            "email": req.body.contact.email
+            "name": req.body.contactName,
+            "position": req.body.contactPosition,
+            "phone": req.body.contactPhone,
+            "email": req.body.contactEmail
         }
     }
     const newWarehouseDataSet = warehouses
@@ -76,10 +87,10 @@ router.put('/:warehouseId/edit',((req,res)=>{
             "city": req.body.city,
             "country": req.body.country,
             "contact": {
-                "name": req.body.contact.name,
-                "position": req.body.contact.position,
-                "phone": req.body.contact.phone,
-                "email": req.body.contact.email
+                "name": req.body.contactName,
+                "position": req.body.contactPosition,
+                "phone": req.body.contactPhone,
+                "email": req.body.contactEmail
             }
         }
         const newWarehouseData = warehouses.map(warehouse => {
