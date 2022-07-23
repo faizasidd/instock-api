@@ -6,8 +6,9 @@ const { v4: uuidv4 } = require("uuid");
 const path = require("path");
 
 //deleting inventory items
-router.delete("/:inventoryId/delete", (req, res) => {
+router.delete("/:inventoryId", (req, res) => {
   const { inventoryId } = req.params;
+  
 // GET full details on all inventory, array of objects
 router.get('/', (req, res) => {
   console.log('Here is a list of the inventory')
@@ -18,7 +19,7 @@ router.get('/', (req, res) => {
 })
 
 //deleting inventory items 
-router.delete('/:inventoryId/delete', (req, res) => {
+router.delete('/:inventoryId', (req, res) => {
     
     const {inventoryId} = req.params
    
@@ -28,8 +29,8 @@ router.delete('/:inventoryId/delete', (req, res) => {
 
     inventories.splice(requestInventory, 1)
 
-    const dataObject = JSON.stringify(inventories, null, 2);
-    fs.writeFile(__dirname + '/../data/inventories.json', dataObject, (err) => {
+    const dataObjectAsString = JSON.stringify(inventories, null, 2);
+    fs.writeFile(__dirname + '/../data/inventories.json', dataObjectAsString, (err) => {
         console.log(err)
     })
     res.status(200).json(inventory)
@@ -43,8 +44,8 @@ router.delete('/:inventoryId/delete', (req, res) => {
 
   inventories.splice(requestInventory, 1);
 
-  const dataObject = JSON.stringify(inventories, null, 2);
-  fs.writeFile(__dirname + "/../data/inventories.json", dataObject, (err) => {
+  const dataObjectAsString = JSON.stringify(inventories, null, 2);
+  fs.writeFile(__dirname + "/../data/inventories.json", dataObjectAsString, (err) => {
     console.log(err);
   });
   res.status(200).json(inventory);
@@ -116,9 +117,9 @@ router.post("/", (req, res) => {
   });
 });
 
-// PUT/PATCH/EDIt Inventory Item
+// PUT/PATCH/EDIT Inventory Item
 
-router.put("/:inventoryId/edit", (req, res) => {
+router.put("/:inventoryId", (req, res) => {
   const inventories = require("../data/inventories.json");
   const inventoryId = req.params.inventoryId;
   const matchingInventory = inventories.find(
