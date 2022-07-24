@@ -1,5 +1,15 @@
 [
   {
+    "id": "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3",
+    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
+    "warehouseName": "Manhattan",
+    "itemName": "Television",
+    "description": "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors.",
+    "category": "Electronics",
+    "status": "In Stock",
+    "quantity": 500
+  },
+  {
     "id": "83433026-ca32-4c6d-bd86-a39ee8b7303e",
     "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
     "warehouseName": "Manhattan",
@@ -193,7 +203,7 @@
     "id": "2c0185c7-89ef-48ad-a22f-9fc022a5c90c",
     "warehouseID": "90ac3319-70d1-4a51-b91d-ba6c2464408c",
     "warehouseName": "Jersey",
-    "itemName": "Satellite dish",
+    "itemName": "Television",
     "description": "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors.",
     "category": "Electronics",
     "status": "Out of Stock",
@@ -680,12 +690,12 @@
     "quantity": 0
   },
   {
-    "id": "9efa62c0-3605-4769-b2c0-30417d1bd4b8",
-    "warehouseID": "",
-    "warehouseName": "Manhattan",
-    "itemName": "Balalaika",
-    "description": "Sounds great! Made out of military-grade synthetic materials.",
-    "category": "Weapon",
+    "id": "853bcd65-b0b3-4f9c-844f-8b4133d7df6f",
+    "warehouseID": "bb1491eb-30e6-4728-a5fa-72f89feaf622",
+    "warehouseName": "Miami",
+    "itemName": "Soap",
+    "description": "Organic and hypoallergenic, this soap is safe to use for all skin types.",
+    "category": "Health",
     "status": "Out of Stock",
     "quantity": 0
   }
