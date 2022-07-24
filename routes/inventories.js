@@ -5,7 +5,8 @@ const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 const path = require("path");
 
-// GET full details on all inventory, array of objects
+// GET full details on all inventories, array of objects
+
 router.get('/', (req, res) => {
   console.log('Here is a list of the inventory')
    
@@ -15,8 +16,23 @@ router.get('/', (req, res) => {
     res.status(200).json(requestInventory);
   });
 
+// GET a Single Inventory Item
 
-    //deleting inventory items 
+  router.get("/:inventoryId", (req, res) => {
+    const id = req.params.inventoryId;
+    const selectedInventory = inventories.filter(
+      (inventory) => inventory.id === id
+    );
+
+    if (selectedInventory) {
+      res.status(200).send(selectedInventory);
+    } else {
+      res.status(400).json(`Inventory with id: ${id} does not exist`);
+    }
+  });
+
+//DELETE inventory items 
+
 router.delete('/:inventoryId', (req, res) => {
 
     const { inventoryId } = req.params
@@ -35,20 +51,6 @@ router.delete('/:inventoryId', (req, res) => {
 });
 
 
-  // GET a Single Inventory Item
-
-  router.get("/:inventoryId", (req, res) => {
-    const id = req.params.inventoryId;
-    const selectedInventory = inventories.filter(
-      (inventory) => inventory.id === id
-    );
-
-    if (selectedInventory) {
-      res.status(200).send(selectedInventory);
-    } else {
-      res.status(400).json(`Inventory with id: ${id} does not exist`);
-    }
-  });
 
   // POST/CREATE new Inventory Item
 
