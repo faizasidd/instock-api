@@ -148,32 +148,8 @@ router.put("/:warehouseId/edit", (req, res) => {
             res.status(200).json("Warehouse Update Received!");
           }
         })
-        const newWarehouseData = warehouses.map(warehouse => {
-            if (warehouse.id === warehouseId){
-                return warehouse = editWarehouse
-            } else {
-                return warehouse = warehouse
-            }
-        })
-    
-        const newInventoryData = inventories.map(inventory => {
-            if (inventory.warehouseID === warehouseId){
-                return {...inventory, warehouseName:req.body.name}
-            } else {
-                return inventory = inventory
-            }
-        })
-    
-        fs.writeFile(__dirname + '/../data/warehouses.json', JSON.stringify(newWarehouseData, null, 2), (err1)=> {
-        fs.writeFile(__dirname + '/../data/inventories.json', JSON.stringify(newInventoryData, null, 2), (err2)=> {
-                if(err1 || err2){
-                    console.log(err1 || err2)
-                } else {
-                    res.status(200).json("Warehouse Update Received!")
-                }
-            })
-        })
-})})
+      })
+});
 
 router.delete('/:warehouseId', (req, res) => {
 
