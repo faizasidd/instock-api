@@ -12,7 +12,7 @@ router.use(cors());
 router.use(bodyParser.json());
 router.use(express.json());
 
-// Full details on all warehouses, array of objects
+// GET full details on all warehouses
 
 router.get("/", (req, res) => {
   const mappedWarehouses = warehouses.map((warehouse) => {
@@ -26,6 +26,7 @@ router.get("/", (req, res) => {
   });
 
   res.status(200).json(mappedWarehouses);
+  console.log(mappedWarehouses)
 });
 
 // GET a Single Warehouse with its inventory
@@ -38,9 +39,10 @@ router.get("/:warehouseId", (req, res) => {
   );
 
   if (selectedWarehouse && selectedInventory) {
+    console.log(selectedWarehouse)
     const joinedData = {
       warehouse: {
-        ...selectedWarehouse,
+        ...selectedWarehouse, 
         contactName: selectedWarehouse.contact.name,
         contactPosition: selectedWarehouse.contact.position,
         contactPhone: selectedWarehouse.contact.phone,
@@ -67,6 +69,26 @@ router.get("/:warehouseId/inventory", (req, res) => {
   }
   res.status(200).json(data);
 });
+
+//DELETE a warehouse
+
+router.delete('/:warehouseId', (req, res) => {
+
+  const { warehouseId } = req.params
+
+  const requestWarehouse = warehouses.findIndex(warehouse => warehouse.id === warehouseId)
+
+  const warehouse = warehouses[requestWarehouse];
+
+  warehouses.splice(requestWarehouse, 1)
+
+  const dataObject = JSON.stringify(warehouses, null, 2);
+  fs.writeFile(__dirname + '/../data/warehouses.json', dataObject, (err) => {
+      console.log(err)
+  })
+  res.status(200).json(warehouses)
+})
+  
 
 // POST/CREATE a New Warehouse
 
@@ -102,7 +124,7 @@ router.post("/", (req, res) => {
 
 // PUT/PATCH/EDIT a Warehouse
 
-router.put("/:warehouseId/edit", (req, res) => {
+router.put("/:warehouseId", (req, res) => {
   let { warehouseId } = req.params;
 
   const editWarehouse = {
@@ -151,23 +173,6 @@ router.put("/:warehouseId/edit", (req, res) => {
       })
 });
 
-router.delete('/:warehouseId', (req, res) => {
-
-    const { warehouseId } = req.params
-
-    const requestWarehouse = warehouses.findIndex(warehouse => warehouse.id === warehouseId)
-
-    const warehouse = warehouses[requestWarehouse];
-
-    warehouses.splice(requestWarehouse, 1)
-
-    const dataObject = JSON.stringify(warehouses, null, 2);
-    fs.writeFile(__dirname + '/../data/warehouses.json', dataObject, (err) => {
-        console.log(err)
-    })
-    res.status(200).json(warehouses)
-})
-    
 
 
 module.exports = router;
