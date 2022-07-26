@@ -1,13 +1,24 @@
 const express = require("express");
 const router = express.Router();
-let inventories = require("../data/inventories.json");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 const path = require("path");
 
-// GET full details on all inventories, array of objects
+//loadInventory is required for pages to load non-static json data. 
 
+function loadInventory() {
+  const jsonString = fs.readFileSync("./data/inventories.json");
+  return JSON.parse(jsonString);
+}
+
+function loadWarehouse() {
+  const jsonString = fs.readFileSync("./data/warehouses.json");
+  return JSON.parse(jsonString);
+}
+
+// GET full details on all inventories, array of objects
 router.get('/', (req, res) => {
+  const inventories = loadInventory();
   console.log('Here is a list of the inventory')
    
     const requestInventory = inventories.filter(
@@ -17,7 +28,7 @@ router.get('/', (req, res) => {
   });
 
 // GET a Single Inventory Item
-
+  const inventories = loadInventory();  
   router.get("/:inventoryId", (req, res) => {
     const id = req.params.inventoryId;
     const selectedInventory = inventories.filter(
@@ -34,7 +45,7 @@ router.get('/', (req, res) => {
 //DELETE inventory items 
 
 router.delete('/:inventoryId', (req, res) => {
-
+  const inventories = loadInventory();
     const { inventoryId } = req.params
 
     const requestInventory = inventories.findIndex(inventory => inventory.id === inventoryId)
@@ -56,8 +67,8 @@ router.delete('/:inventoryId', (req, res) => {
 
   router.post("/", (req, res) => {
     //   res.send("Hello this is a successful post request!");
-    const warehouses = require("../data/warehouses.json");
-    const inventories = require("../data/inventories.json");
+    const inventories = loadInventory();
+    const warehouses = loadWarehouse();
 
     const {
       warehouseID,
@@ -106,7 +117,7 @@ router.delete('/:inventoryId', (req, res) => {
   // PUT/PATCH/EDIT Inventory Item
 
   router.put("/:inventoryId", (req, res) => {
-    const inventories = require("../data/inventories.json");
+    const inventories = loadInventory();
     const inventoryId = req.params.inventoryId;
     const matchingInventory = inventories.find(
       (inventory) => inventory.id === inventoryId

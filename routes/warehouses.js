@@ -3,8 +3,6 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const fs = require("fs");
-const warehouses = require("../data/warehouses.json");
-const inventories = require("../data/inventories.json");
 const { v4: uuidv4 } = require("uuid");
 const { json } = require("express");
 
@@ -12,9 +10,20 @@ router.use(cors());
 router.use(bodyParser.json());
 router.use(express.json());
 
-// GET full details on all warehouses
+//loadWarehouse and loadInventory are required for pages to load non-static json data. 
+function loadWarehouse() {
+  const jsonString = fs.readFileSync("./data/warehouses.json");
+  return JSON.parse(jsonString);
+}
 
+function loadInventory() {
+  const jsonString = fs.readFileSync("./data/inventories.json");
+  return JSON.parse(jsonString);
+}
+
+// GET full details on all warehouses
 router.get("/", (req, res) => {
+  const warehouses = loadWarehouse();
   const mappedWarehouses = warehouses.map((warehouse) => {
     return {
       ...warehouse,
@@ -26,12 +35,13 @@ router.get("/", (req, res) => {
   });
 
   res.status(200).json(mappedWarehouses);
-  console.log(mappedWarehouses)
 });
 
 // GET a Single Warehouse with its inventory
 
 router.get("/:warehouseId", (req, res) => {
+  const warehouses = loadWarehouse();
+  const inventories = loadInventory();
   const id = req.params.warehouseId;
   const selectedWarehouse = warehouses.find((warehouse) => warehouse.id === id);
   const selectedInventory = inventories.filter(
@@ -60,6 +70,7 @@ router.get("/:warehouseId", (req, res) => {
 // GET Inventories for a Given Warehouse
 
 router.get("/:warehouseId/inventory", (req, res) => {
+  const inventories = loadInventory();
   let { warehouseId } = req.params;
   const data = inventories.filter(
     (inventory) => inventory.warehouseID === warehouseId
@@ -73,7 +84,7 @@ router.get("/:warehouseId/inventory", (req, res) => {
 //DELETE a warehouse
 
 router.delete('/:warehouseId', (req, res) => {
-
+  const warehouses = loadWarehouse();
   const { warehouseId } = req.params
 
   const requestWarehouse = warehouses.findIndex(warehouse => warehouse.id === warehouseId)
@@ -93,6 +104,7 @@ router.delete('/:warehouseId', (req, res) => {
 // POST/CREATE a New Warehouse
 
 router.post("/", (req, res) => {
+  const warehouses = loadWarehouse();
   const newWarehouseInfo = {
     id: uuidv4(),
     name: req.body.name,
@@ -125,6 +137,8 @@ router.post("/", (req, res) => {
 // PUT/PATCH/EDIT a Warehouse
 
 router.put("/:warehouseId", (req, res) => {
+  const warehouses = loadWarehouse();
+  const inventories = loadInventory();
   let { warehouseId } = req.params;
 
   const editWarehouse = {
@@ -140,14 +154,15 @@ router.put("/:warehouseId", (req, res) => {
       email: req.body.contactEmail,
     },
   };
+
   const newWarehouseData = warehouses.map((warehouse) => {
+    
     if (warehouse.id === warehouseId) {
       return (warehouse = editWarehouse);
     } else {
       return (warehouse = warehouse);
     }
   });
-
   const newInventoryData = inventories.map((inventory) => {
     if (inventory.warehouseID === warehouseId) {
       return { ...inventory, warehouseName: req.body.name };
