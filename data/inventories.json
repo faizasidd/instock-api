@@ -10,104 +10,9 @@
     "quantity": 500
   },
   {
-    "id": "83433026-ca32-4c6d-bd86-a39ee8b7303e",
-    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "warehouseName": "Manhattan",
-    "itemName": "Gym Bag",
-    "description": "Made out of military-grade synthetic materials, this gym bag is highly durable, water resistant, and easy to clean.",
-    "category": "Gear",
-    "status": "Out of Stock",
-    "quantity": 0
-  },
-  {
-    "id": "a193a6a7-42ab-4182-97dc-555ee85e7486",
-    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "warehouseName": "Manhattan",
-    "itemName": "Hoodie",
-    "description": "A simple 100% cotton hoodie, this is an essential piece for any wardrobe.",
-    "category": "Apparel",
-    "status": "Out of Stock",
-    "quantity": 0
-  },
-  {
-    "id": "8f16bd30-bab5-40af-aca2-b63d5fdd1acc",
-    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "warehouseName": "Manhattan",
-    "itemName": "Keychain",
-    "description": "Made from 100% genuine leather, this keychain will keep your keys organized while keeping a classic, professional look.",
-    "category": "Accessories",
-    "status": "In Stock",
-    "quantity": 2000
-  },
-  {
-    "id": "bdc6bb69-e09c-498d-8abd-be2792504d00",
-    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "warehouseName": "Manhattan",
-    "itemName": "Shampoo",
-    "description": "Natural shampoo made from 99% biodegradable ingredients.",
-    "category": "Health",
-    "status": "In Stock",
-    "quantity": 4350
-  },
-  {
-    "id": "3ce124a4-78b0-4d80-91b9-11f9ced631a7",
-    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "warehouseName": "Manhattan",
-    "itemName": "Phone Charger",
-    "description": "This USB-C phone charger features fast charging for the latest devices.",
-    "category": "Electronics",
-    "status": "In Stock",
-    "quantity": 10000
-  },
-  {
-    "id": "4dd464d6-90b8-4330-91e0-bd1217811bd9",
-    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "warehouseName": "Manhattan",
-    "itemName": "Tent",
-    "description": "Perfect for spring or summer camping, this 1-person tent is easy to pack and has the option to become modular when used with other products.",
-    "category": "Gear",
-    "status": "In Stock",
-    "quantity": 800
-  },
-  {
-    "id": "c0ba64a8-0ecb-4a7d-ab7f-2dbbd1d437b1",
-    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "warehouseName": "Manhattan",
-    "itemName": "Winter Jacket",
-    "description": "Made with a durable 100% waterproof shell, and breathable layers without a ton of vents and perforations. breathable layers without a ton of vents and perforations.",
-    "category": "Apparel",
-    "status": "Out of Stock",
-    "quantity": 0
-  },
-  {
-    "id": "d9ef9352-2367-4272-8884-70cf80cb7a38",
-    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "warehouseName": "Manhattan",
-    "itemName": "Watch",
-    "description": "Crafted from premium materials including a full-grain leather strap and a stainless steel case, this watch features swiss movement and is waterproof up to 5 ATM.",
-    "category": "Accessories",
-    "status": "Out of Stock",
-    "quantity": 0
-  },
-  {
-    "id": "b70067d1-49c9-4925-b830-67b3e98005d5",
-    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "warehouseName": "Manhattan",
-    "itemName": "Soap",
-    "description": "Organic and hypoallergenic, this soap is safe to use for all skin types.",
-    "category": "Health",
-    "status": "In Stock",
-    "quantity": 12500
-  },
-  {
     "id": "7c79d334-6b90-4052-9def-aa9b8519c9fb",
     "warehouseID": "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
-    "warehouseName": "Washington",
-    "itemName": "Monitor",
-    "description": "A 32\" IPS LED ultrawide monitor, perfect for work or gaming.",
-    "category": "Electronics",
-    "status": "Out of Stock",
-    "quantity": 0
+    "itemName": "tyr"
   },
   {
     "id": "eafcb711-a726-4b3c-adec-704e3265c47d",
@@ -158,46 +63,6 @@
     "category": "Electronics",
     "status": "In Stock",
     "quantity": 785
-  },
-  {
-    "id": "2cba0296-c77d-4758-9115-bd98ac18f2c0",
-    "warehouseID": "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
-    "warehouseName": "Washington",
-    "itemName": "Sleeping Bag",
-    "description": "This ultra-light sleeping bag is packed with an eco-friendly fill. Best used in spring or summer temperatures.",
-    "category": "Gear",
-    "status": "In Stock",
-    "quantity": 987
-  },
-  {
-    "id": "e202e167-d242-4d7f-b8fc-68caffef9e01",
-    "warehouseID": "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
-    "warehouseName": "Washington",
-    "itemName": "Windbreaker",
-    "description": "Made from waterproof material, this windbreaker is best layered on top of a sweater to keep warm in inclement conditions.",
-    "category": "Apparel",
-    "status": "In Stock",
-    "quantity": 1185
-  },
-  {
-    "id": "079c88df-ed32-4d88-a9b7-eaebc85c4ce2",
-    "warehouseID": "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
-    "warehouseName": "Washington",
-    "itemName": "Water Bottle",
-    "description": "With a 1-litre capacity and BPA-free, this water-bottle is perfect for long days out.",
-    "category": "Accessories",
-    "status": "Out of Stock",
-    "quantity": 0
-  },
-  {
-    "id": "56c8e94c-777d-4176-b7fd-02f0806f614a",
-    "warehouseID": "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
-    "warehouseName": "Washington",
-    "itemName": "Protein Powder",
-    "description": "100% natural plant-based protein powder from organic ingredients.",
-    "category": "Health",
-    "status": "Out of Stock",
-    "quantity": 0
   },
   {
     "id": "2c0185c7-89ef-48ad-a22f-9fc022a5c90c",
@@ -698,5 +563,15 @@
     "category": "Health",
     "status": "Out of Stock",
     "quantity": 0
+  },
+  {
+    "id": "7cebefda-54b1-4254-9363-dc19fad7838e",
+    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
+    "warehouseName": "Manhattan",
+    "itemName": "ryry",
+    "description": "ry",
+    "category": "Electronics",
+    "status": "In Stock",
+    "quantity": "4"
   }
 ]
